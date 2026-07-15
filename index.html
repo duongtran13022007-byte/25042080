@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trần Đức Dương · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --washi:#F8F1E1;
+    --washi-deep:#EFE0C4;
+    --card-bg:#FFFBF2;
+    --sumi:#272320;
+    --sumi-soft:#5C5347;
+    --indigo:#28395E;
+    --indigo-deep:#16213B;
+    --vermillion:#D9472E;
+    --gold:#C9A227;
+    --sakura:#F7DCE0;
+    --matcha:#76876B;
+    --line:rgba(22,33,59,0.14);
+    --max:1100px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Be Vietnam Pro', sans-serif;
+    background:var(--washi);
+    color:var(--sumi);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(39,35,32,0.04) 1px, transparent 1px);
+    background-size:22px 22px;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Lora', serif;
+    color:var(--indigo-deep);
+    margin:0;
+    line-height:1.25;
+  }
+
+  .kanji{
+    font-family:'Noto Serif JP', serif;
+  }
+
+  a{color:inherit;}
+  img{max-width:100%;}
+
+  /* ===== NAV ===== */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(247,241,228,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--max); margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Lora', serif; font-weight:600; font-size:1.05rem;
+    color:var(--indigo-deep);
+    text-decoration:none;
+  }
+  .brand .seal{
+    width:30px; height:30px; border-radius:4px;
+    background:var(--vermillion); color:var(--washi);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Noto Serif JP', serif; font-size:1.05rem; font-weight:700;
+    box-shadow:0 1px 0 rgba(0,0,0,0.15);
+    transform:rotate(-3deg);
+  }
+  nav.links{display:flex; gap:6px; flex-wrap:wrap;}
+  nav.links a{
+    text-decoration:none; color:var(--sumi-soft);
+    font-size:0.92rem; font-weight:500;
+    padding:8px 14px; border-radius:999px;
+    transition:background .2s, color .2s;
+    white-space:nowrap;
+  }
+  nav.links a:hover, nav.links a.active{
+    background:var(--indigo-deep); color:var(--washi);
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative; overflow:hidden;
+    max-width:var(--max); margin:0 auto;
+    padding:90px 24px 70px;
+    text-align:center;
+  }
+  .hero .bg-kanji{
+    position:absolute; top:-60px; right:-40px;
+    font-size:min(46vw, 420px);
+    font-family:'Noto Serif JP', serif;
+    color:rgba(22,33,59,0.05);
+    z-index:0; user-select:none; pointer-events:none;
+    line-height:1;
+  }
+
+  /* ===== DECORATIVE BACKGROUND ELEMENTS (kanji & landmarks) ===== */
+  .bg-deco{
+    position:absolute; inset:0; overflow:hidden;
+    pointer-events:none; z-index:0;
+  }
+  .bg-deco .deco-icon{
+    position:absolute; color:var(--indigo-deep); opacity:0.05;
+  }
+  .bg-deco .deco-icon.accent{color:var(--vermillion); opacity:0.07;}
+  .bg-deco .deco-kanji{
+    position:absolute; font-family:'Noto Serif JP', serif;
+    color:rgba(22,33,59,0.045); line-height:1; font-weight:700;
+    user-select:none;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.8rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--vermillion); font-weight:700;
+    border:1px solid rgba(181,69,58,0.35);
+    border-radius:999px; padding:6px 16px;
+    background:rgba(181,69,58,0.06);
+    position:relative; z-index:1;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 4.2rem);
+    margin:22px 0 10px;
+    position:relative; z-index:1;
+  }
+  .hero h1 .jp{
+    font-family:'Noto Serif JP', serif;
+    color:var(--vermillion);
+    font-size:0.55em;
+    display:block;
+    margin-bottom:6px;
+    letter-spacing:.3em;
+  }
+  .hero p.sub{
+    max-width:680px; margin:0 auto; position:relative; z-index:1;
+    font-size:1.05rem; color:var(--sumi-soft);
+  }
+  .hero .tags{
+    margin-top:32px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
+    position:relative; z-index:1;
+  }
+  .hero .tags span{
+    font-size:0.85rem; padding:8px 16px; border-radius:999px;
+    background:var(--washi-deep); border:1px solid var(--line);
+    color:var(--sumi-soft);
+  }
+
+  .cards{
+    max-width:var(--max); margin:10px auto 0; padding:0 24px 80px;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+  }
+  .card-link{
+    text-decoration:none;
+    background:var(--card-bg); border:1px solid var(--line); border-radius:14px;
+    padding:28px 24px; transition:transform .25s, box-shadow .25s;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .card-link:hover{transform:translateY(-4px); box-shadow:0 14px 28px rgba(22,33,59,0.14);}
+  .card-link .icon{
+    width:46px; height:46px; border-radius:10px;
+    background:var(--indigo-deep); color:var(--washi);
+    display:flex; align-items:center; justify-content:center; font-size:1.3rem;
+  }
+  .card-link h3{font-size:1.15rem;}
+  .card-link p{margin:0; color:var(--sumi-soft); font-size:0.92rem;}
+
+  /* ===== SECTION GENERIC ===== */
+  section.page{
+    position:relative; overflow:hidden;
+    max-width:var(--max); margin:0 auto;
+    padding:80px 24px;
+    border-top:1px solid var(--line);
+  }
+  .section-head{
+    text-align:center; max-width:680px; margin:0 auto 56px;
+  }
+  .section-head .seal{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:54px; height:54px; border-radius:6px;
+    background:var(--vermillion); color:var(--washi);
+    font-family:'Noto Serif JP', serif; font-size:1.4rem; font-weight:700;
+    transform:rotate(-4deg); margin-bottom:18px;
+    box-shadow:0 2px 0 rgba(0,0,0,0.12);
+  }
+  .section-head h2{font-size:clamp(1.7rem,4vw,2.6rem);}
+  .section-head p{color:var(--sumi-soft); margin-top:12px;}
+
+  /* footer banner repeated */
+  .strip{
+    background:var(--indigo-deep); color:var(--washi);
+    text-align:center; font-size:0.85rem; letter-spacing:.04em;
+    padding:18px 24px;
+  }
+  .strip b{color:var(--gold);}
+
+  /* ===== GIOI THIEU ===== */
+  .profile-top{
+    display:grid; grid-template-columns:220px 1fr; gap:36px; align-items:center;
+    margin-bottom:54px;
+  }
+  .avatar{
+    width:200px; height:200px; border-radius:18px; margin:0 auto;
+    background:linear-gradient(135deg, var(--indigo) 0%, var(--indigo-deep) 100%);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--washi); font-family:'Noto Serif JP', serif;
+    font-size:3.4rem; font-weight:700; letter-spacing:.05em;
+    box-shadow:0 16px 40px rgba(22,33,59,0.30);
+    position:relative;
+  }
+  .avatar::after{
+    content:"伝統と未来";
+    position:absolute; bottom:14px; font-size:0.7rem;
+    font-family:'Noto Serif JP', serif; letter-spacing:.2em; opacity:.55;
+  }
+  .profile-info h2{font-size:clamp(1.6rem,4vw,2.3rem); margin-bottom:6px;}
+  .profile-info .role{color:var(--vermillion); font-weight:600; font-size:0.98rem; margin-bottom:14px;}
+  .pills{display:flex; gap:10px; flex-wrap:wrap;}
+  .pills span{
+    font-size:0.85rem; padding:6px 14px; border-radius:999px;
+    background:var(--card-bg); border:1px solid var(--line); color:var(--sumi-soft);
+  }
+
+  .info-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:54px;
+  }
+  .info-item{
+    background:var(--card-bg); border:1px solid var(--line); border-radius:12px;
+    padding:20px 22px; display:flex; gap:14px; align-items:flex-start;
+  }
+  .info-item .ic{
+    font-size:1.4rem; width:42px; height:42px; flex-shrink:0;
+    border-radius:10px; background:var(--sakura);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .info-item .lab{font-size:0.8rem; color:var(--sumi-soft); text-transform:uppercase; letter-spacing:.06em;}
+  .info-item .val{font-weight:600; color:var(--indigo-deep); margin-top:2px;}
+
+  .twocol{
+    display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-bottom:54px;
+  }
+  .panel{
+    background:var(--card-bg); border:1px solid var(--line); border-radius:14px; padding:28px;
+  }
+  .panel h3{font-size:1.2rem; margin-bottom:16px; display:flex; align-items:center; gap:10px;}
+  .interest-grid{display:flex; flex-wrap:wrap; gap:10px;}
+  .interest-grid span{
+    background:var(--washi-deep); border-radius:999px; padding:8px 16px; font-size:0.88rem;
+    transition:background .2s, color .2s;
+  }
+  .interest-grid span:hover{background:var(--sakura); color:var(--vermillion);}
+  .goal p{color:var(--sumi-soft); font-size:0.95rem;}
+  .goal b{color:var(--indigo-deep);}
+
+  .skills-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:54px;
+  }
+  .skill{
+    background:var(--card-bg); border:1px solid var(--line); border-radius:12px;
+    padding:22px; text-align:center;
+  }
+  .skill .ic{font-size:1.8rem; margin-bottom:10px; color:var(--matcha);}
+  .skill .t{font-weight:600; font-size:0.92rem; color:var(--indigo-deep);}
+
+  /* timeline */
+  .timeline{display:flex; flex-direction:column; gap:18px;}
+  .tl-item{
+    display:grid; grid-template-columns:160px 1fr; gap:24px;
+    background:var(--card-bg); border:1px solid var(--line); border-radius:14px;
+    padding:24px 28px;
+  }
+  .tl-item .when{
+    font-family:'Noto Serif JP', serif; color:var(--vermillion);
+    font-weight:700; font-size:1rem; border-right:1px solid var(--line);
+    padding-right:20px;
+  }
+  .tl-item .when small{display:block; font-family:'Be Vietnam Pro',sans-serif; color:var(--sumi-soft); font-weight:400; font-size:0.78rem; margin-top:4px;}
+  .tl-item h4{font-size:1.05rem; margin-bottom:10px;}
+  .tl-item ul{margin:0; padding-left:18px; color:var(--sumi-soft); font-size:0.93rem;}
+  .tl-item li{margin-bottom:4px;}
+
+  /* ===== DU AN ===== */
+  .stat-row{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:54px;
+  }
+  .stat{
+    background:var(--card-bg); border:1px solid var(--line); border-radius:12px;
+    padding:24px; text-align:center;
+  }
+  .stat .num{font-family:'Lora',serif; font-size:2.2rem; color:var(--indigo-deep); font-weight:700;}
+  .stat .lab{font-size:0.85rem; color:var(--sumi-soft); margin-top:4px;}
+
+  .proj{
+    border:1px solid var(--line); border-radius:14px; margin-bottom:18px;
+    background:var(--card-bg); overflow:hidden;
+  }
+  .proj-head{
+    display:flex; align-items:center; gap:18px; padding:22px 26px;
+    cursor:pointer; user-select:none;
+  }
+  .proj-head .num{
+    width:46px; height:46px; flex-shrink:0; border-radius:6px;
+    background:var(--vermillion); color:var(--washi);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Noto Serif JP', serif; font-size:1.2rem; font-weight:700;
+    transform:rotate(-3deg);
+  }
+  .proj-head .ttl{flex:1;}
+  .proj-head .ttl h3{font-size:1.12rem; margin-bottom:3px;}
+  .proj-head .ttl p{margin:0; font-size:0.88rem; color:var(--sumi-soft);}
+  .proj-head .mucnum{font-size:0.78rem; color:var(--gold); font-weight:700; letter-spacing:.05em; margin-right:10px;}
+  .proj-head .chev{
+    font-size:1.1rem; color:var(--sumi-soft); transition:transform .25s;
+  }
+  .proj.open .chev{transform:rotate(180deg);}
+  .proj-body{
+    max-height:0; overflow:hidden; transition:max-height .35s ease;
+  }
+  .proj.open .proj-body{max-height:3000px;}
+  .proj-body-inner{padding:0 26px 28px; border-top:1px solid var(--line);}
+  .proj-body-inner h4{font-size:0.95rem; margin:22px 0 12px; display:flex; align-items:center; gap:8px;}
+  .proj-body-inner p{color:var(--sumi-soft); font-size:0.93rem;}
+
+  .steps{display:flex; flex-direction:column; gap:10px;}
+  .step{display:flex; gap:14px; align-items:flex-start;}
+  .step .s{
+    width:26px; height:26px; flex-shrink:0; border-radius:50%;
+    background:var(--washi-deep); display:flex; align-items:center; justify-content:center;
+    font-size:0.78rem; font-weight:700; color:var(--indigo-deep);
+  }
+  .step p{margin:0; font-size:0.92rem; color:var(--sumi);}
+
+  .mini-cards{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .mini-card{background:var(--washi-deep); border-radius:10px; padding:16px;}
+  .mini-card .t{font-weight:700; font-size:0.9rem; color:var(--indigo-deep); margin-bottom:6px;}
+  .mini-card .d{font-size:0.85rem; color:var(--sumi-soft);}
+
+  .quote-box{
+    background:var(--washi-deep); border-left:4px solid var(--vermillion);
+    border-radius:8px; padding:16px 20px; font-size:0.9rem; color:var(--sumi-soft);
+    font-style:italic;
+  }
+
+  /* ===== FILE BÀI LÀM ĐÃ NỘP ===== */
+  .proj-desc{color:var(--sumi-soft); font-size:0.95rem; margin:18px 0 20px;}
+  .download-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.9rem; font-weight:600; cursor:pointer;
+    padding:10px 18px; border-radius:999px; text-decoration:none;
+    background:var(--card-bg); color:var(--indigo-deep); border:1px solid var(--line);
+    transition:background .2s, color .2s;
+  }
+  .download-btn:hover{background:var(--washi);}
+  .submission-box{display:flex; flex-direction:column; gap:14px;}
+  .submission-embed{
+    border:1px solid var(--line); border-radius:12px; overflow:hidden;
+    background:var(--card-bg);
+  }
+  .submission-embed:empty{display:none; border:none;}
+  .submission-embed iframe{
+    display:block; width:100%; height:480px; border:none;
+  }
+  .submission-embed img{display:block; width:100%; max-height:520px; object-fit:contain;}
+  .submission-embed.ratio-16-9{
+    position:relative; height:0; padding-bottom:60%;
+  }
+  .submission-embed.ratio-16-9 iframe{
+    position:absolute; inset:0; width:100%; height:100%;
+  }
+  .submission-hint{font-size:0.8rem; color:var(--sumi-soft);}
+  .submission-hint code{
+    background:var(--washi-deep); padding:2px 6px; border-radius:4px; font-size:0.8rem;
+  }
+
+  .principle-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+  .principle{
+    background:var(--washi-deep); border-radius:10px; padding:18px;
+  }
+  .principle .t{display:flex; gap:10px; align-items:center; font-weight:700; color:var(--indigo-deep); margin-bottom:6px; font-size:0.95rem;}
+  .principle .d{font-size:0.85rem; color:var(--sumi-soft);}
+
+  /* ===== TONG KET ===== */
+  .summary-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:54px;
+  }
+  .sum-card{
+    background:var(--card-bg); border:1px solid var(--line); border-radius:14px; padding:24px;
+  }
+  .sum-card .ic{font-size:1.6rem; margin-bottom:10px;}
+  .sum-card h4{font-size:1.02rem; margin-bottom:8px;}
+  .sum-card p{margin:0; font-size:0.88rem; color:var(--sumi-soft);}
+
+  .challenge-list{display:flex; flex-direction:column; gap:12px; margin-bottom:54px;}
+  .challenge{
+    display:flex; gap:14px; align-items:flex-start;
+    background:var(--card-bg); border:1px solid var(--line); border-radius:12px; padding:18px 22px;
+  }
+  .challenge .ic{font-size:1.3rem;}
+  .challenge p{margin:0; font-size:0.92rem; color:var(--sumi-soft);}
+  .challenge b{color:var(--indigo-deep);}
+
+  .feel-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:54px;
+  }
+  .feel{
+    background:var(--sakura); border-radius:12px; padding:22px; text-align:center;
+  }
+  .feel .ic{font-size:1.6rem; margin-bottom:10px;}
+  .feel p{margin:0; font-size:0.85rem; color:var(--sumi-soft);}
+
+  .closing{
+    text-align:center; background:var(--indigo-deep); color:var(--washi);
+    border-radius:18px; padding:50px 36px; position:relative; overflow:hidden;
+  }
+  .closing .bg-kanji{
+    position:absolute; right:-30px; bottom:-50px;
+    font-family:'Noto Serif JP', serif; font-size:14rem;
+    color:rgba(247,241,228,0.06); line-height:1;
+  }
+  .closing .seal{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:58px; height:58px; border-radius:6px;
+    background:var(--vermillion); color:var(--washi);
+    font-family:'Noto Serif JP', serif; font-size:1.6rem; font-weight:700;
+    transform:rotate(-4deg); margin-bottom:18px;
+  }
+  .closing h3{color:var(--washi); font-size:clamp(1.5rem,4vw,2.2rem); margin-bottom:14px;}
+  .closing p{color:rgba(247,241,228,0.78); max-width:620px; margin:0 auto; position:relative; z-index:1; font-size:0.98rem;}
+  .closing b{color:var(--gold);}
+
+  footer.foot{
+    text-align:center; padding:30px 24px 50px; color:var(--sumi-soft); font-size:0.85rem;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width:860px){
+    .cards{grid-template-columns:1fr;}
+    .profile-top{grid-template-columns:1fr; text-align:center;}
+    .info-grid{grid-template-columns:1fr 1fr;}
+    .twocol{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:1fr 1fr;}
+    .tl-item{grid-template-columns:1fr; gap:8px;}
+    .tl-item .when{border-right:none; border-bottom:1px solid var(--line); padding-bottom:10px;}
+    .stat-row{grid-template-columns:1fr;}
+    .mini-cards{grid-template-columns:1fr;}
+    .principle-grid{grid-template-columns:1fr;}
+    .summary-grid{grid-template-columns:1fr;}
+    .feel-grid{grid-template-columns:1fr 1fr;}
+    nav.links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand"><span class="seal">道</span> Dương Portfolio</a>
+    <nav class="links">
+      <a href="#home">🏠 Trang chủ</a>
+      <a href="#gioithieu">👤 Giới thiệu</a>
+      <a href="#duan">📁 Dự án</a>
+      <a href="#tongket">🏆 Tổng kết</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HOME / HERO ================= -->
+<div id="home" class="hero">
+  <div class="bg-kanji">語</div>
+  <div class="bg-deco">
+    <!-- Cổng Torii -->
+    <svg class="deco-icon accent" viewBox="0 0 200 160" style="width:200px; bottom:-15px; left:-25px;" preserveAspectRatio="xMidYMax meet">
+      <rect x="18" y="14" width="164" height="16" rx="3" fill="currentColor"/>
+      <rect x="32" y="42" width="136" height="10" rx="2" fill="currentColor"/>
+      <rect x="36" y="42" width="22" height="118" rx="2" fill="currentColor"/>
+      <rect x="142" y="42" width="22" height="118" rx="2" fill="currentColor"/>
+    </svg>
+    <!-- Tháp Tokyo -->
+    <svg class="deco-icon" viewBox="0 0 140 340" style="width:170px; bottom:-10px; right:30px;" preserveAspectRatio="xMidYMax meet">
+      <rect x="65" y="0" width="10" height="35" fill="currentColor"/>
+      <polygon points="70,30 98,300 42,300" fill="currentColor"/>
+      <rect x="50" y="80" width="40" height="9" fill="currentColor"/>
+      <rect x="46" y="170" width="48" height="9" fill="currentColor"/>
+      <line x1="42" y1="300" x2="98" y2="80" stroke="currentColor" stroke-width="2"/>
+      <line x1="98" y1="300" x2="42" y2="80" stroke="currentColor" stroke-width="2"/>
+    </svg>
+    <div class="deco-kanji" style="font-size:7rem; left:6%; bottom:6%;">夢</div>
+    <div class="deco-kanji" style="font-size:5rem; right:4%; top:8%;">和</div>
+  </div>
+  <span class="eyebrow">日本語学 · Nhập môn Công nghệ số &amp; Ứng dụng Trí tuệ nhân tạo AI</span>
+  <h1><span class="jp">チャン ドゥック ヅオン</span>Trần Đức Dương</h1>
+  <p class="sub">
+    Portfolio cá nhân · Sinh viên ngành Ngôn ngữ &amp; Văn hóa Nhật Bản,
+    Trường Đại học Ngoại ngữ – ĐHQGHN. Nơi lưu lại hành trình rèn luyện
+    kỹ năng số và ứng dụng AI trong học tập ngôn ngữ &amp; văn hóa Nhật Bản.
+  </p>
+  <div class="tags">
+    <span>🇯🇵 Tiếng Nhật &amp; Văn hóa</span>
+    <span>🤖 AI &amp; Prompt Engineering</span>
+    <span>🔍 Tìm kiếm học thuật</span>
+    <span>🤝 Cộng tác số</span>
+    <span>🎨 Sáng tạo nội dung AI</span>
+    <span>⚖️ Liêm chính học thuật</span>
+  </div>
+</div>
+
+<div class="cards">
+  <a href="#gioithieu" class="card-link">
+    <div class="icon">👤</div>
+    <h3>Giới thiệu</h3>
+    <p>Hồ sơ cá nhân, sở thích, mục tiêu &amp; định hướng phát triển cùng tiếng Nhật.</p>
+  </a>
+  <a href="#duan" class="card-link">
+    <div class="icon">📁</div>
+    <h3>Dự án</h3>
+    <p>6 bài tập thực hành theo từng chủ đề công nghệ số, gắn với chuyên ngành Nhật ngữ.</p>
+  </a>
+  <a href="#tongket" class="card-link">
+    <div class="icon">🏆</div>
+    <h3>Tổng kết</h3>
+    <p>Kỹ năng tích lũy, thách thức đã vượt qua và cảm nhận cá nhân.</p>
+  </a>
+</div>
+
+<div class="strip">
+  Trần Đức Dương — Đại học Ngoại ngữ – ĐHQGHN ·
+  Ngành <b>Ngôn ngữ &amp; Văn hóa Nhật Bản</b> · Mã sinh viên <b>25042080</b> ·
+  Môn Nhập môn Công nghệ số &amp; Ứng dụng Trí tuệ nhân tạo AI
+</div>
+
+<!-- ================= GIOI THIEU ================= -->
+<section id="gioithieu" class="page">
+  <div class="bg-deco">
+    <!-- Tháp chuông / chùa 5 tầng -->
+    <svg class="deco-icon" viewBox="0 0 200 260" style="width:170px; top:-20px; right:-20px;" preserveAspectRatio="xMidYMin meet">
+      <rect x="96" y="5" width="8" height="35" fill="currentColor"/>
+      <circle cx="100" cy="8" r="6" fill="currentColor"/>
+      <rect x="85" y="40" width="30" height="28" fill="currentColor"/>
+      <polygon points="68,40 132,40 148,56 52,56" fill="currentColor"/>
+      <rect x="74" y="92" width="52" height="34" fill="currentColor"/>
+      <polygon points="54,92 146,92 166,112 34,112" fill="currentColor"/>
+      <rect x="58" y="150" width="84" height="44" fill="currentColor"/>
+      <polygon points="34,150 166,150 192,176 8,176" fill="currentColor"/>
+    </svg>
+    <div class="deco-kanji" style="font-size:9rem; left:-2%; bottom:-4%;">学</div>
+  </div>
+  <div class="section-head">
+    <span class="seal">介</span>
+    <h2>👤 Giới thiệu bản thân</h2>
+    <p>Hồ sơ cá nhân, thông tin học thuật, sở thích và định hướng phát triển cùng ngôn ngữ &amp; văn hóa Nhật Bản</p>
+  </div>
+
+  <div class="profile-top">
+    <div class="avatar">ĐD</div>
+    <div class="profile-info">
+      <h2>Trần Đức Dương</h2>
+      <div class="role">Sinh viên ngành Ngôn ngữ &amp; Văn hóa Nhật Bản · Trường ĐH Ngoại ngữ – ĐHQGHN</div>
+      <div class="pills">
+        <span>🎓 Khóa QH-2025</span>
+        <span>🈴 Mục tiêu JLPT N3 → N2</span>
+        <span>📖 Đam mê tiếng Nhật &amp; văn hóa Nhật Bản</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-item">
+      <div class="ic">👨‍🎓</div>
+      <div><div class="lab">Họ và tên</div><div class="val">Trần Đức Dương</div></div>
+    </div>
+    <div class="info-item">
+      <div class="ic">🪪</div>
+      <div><div class="lab">Mã sinh viên</div><div class="val">25042080</div></div>
+    </div>
+    <div class="info-item">
+      <div class="ic">🇯🇵</div>
+      <div><div class="lab">Ngành học</div><div class="val">Ngôn ngữ &amp; Văn hóa Nhật Bản</div></div>
+    </div>
+    <div class="info-item">
+      <div class="ic">📅</div>
+      <div><div class="lab">Khóa học</div><div class="val">QH-2025</div></div>
+    </div>
+    <div class="info-item">
+      <div class="ic">🏛️</div>
+      <div><div class="lab">Trường</div><div class="val">Đại học Ngoại ngữ – ĐHQGHN</div></div>
+    </div>
+    <div class="info-item">
+      <div class="ic">🈴</div>
+      <div><div class="lab">Trình độ hướng tới</div><div class="val">JLPT N3 → N2</div></div>
+    </div>
+  </div>
+
+  <div class="twocol">
+    <div class="panel interest">
+      <h3>❤️ Sở thích cá nhân</h3>
+      <div class="interest-grid">
+        <span>🎌 Văn hóa Nhật Bản</span>
+        <span>🍱 Ẩm thực Nhật</span>
+        <span>🎶 J-Pop &amp; Anime</span>
+        <span>📚 Đọc sách tiếng Nhật</span>
+        <span>✍️ Luyện viết Kanji</span>
+        <span>🗺️ Khám phá địa điểm mới</span>
+      </div>
+    </div>
+    <div class="panel goal">
+      <h3>🎯 Mục tiêu Portfolio</h3>
+      <p>
+        Portfolio này được xây dựng nhằm <b>thể hiện các kỹ năng số đã học</b> trong môn
+        Nhập môn Công nghệ số, lưu trữ sản phẩm cá nhân để dễ truy cập và chia sẻ,
+        đồng thời tạo nền tảng vững chắc cho hành trình học tập và phát triển chuyên môn
+        trong lĩnh vực <b>Ngôn ngữ &amp; Văn hóa Nhật Bản</b> thời đại số.
+      </p>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-bottom:54px;">
+    <h3>🧠 Kỹ năng đã học</h3>
+    <div class="skills-grid">
+      <div class="skill"><div class="ic">📁</div><div class="t">Tổ chức tệp &amp; thư mục</div></div>
+      <div class="skill"><div class="ic">🔍</div><div class="t">Tìm kiếm học thuật</div></div>
+      <div class="skill"><div class="ic">✍️</div><div class="t">Viết Prompt AI</div></div>
+      <div class="skill"><div class="ic">🤝</div><div class="t">Làm việc nhóm online</div></div>
+      <div class="skill"><div class="ic">🎨</div><div class="t">Sáng tạo nội dung AI</div></div>
+      <div class="skill"><div class="ic">⚖️</div><div class="t">Đạo đức công nghệ</div></div>
+    </div>
+  </div>
+
+  <h3 style="text-align:center; margin-bottom:24px;">🛣️ Định hướng phát triển</h3>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="when">Năm 1<small>Hiện tại</small></div>
+      <div>
+        <h4>Xây dựng nền tảng tiếng Nhật &amp; kỹ năng số</h4>
+        <ul>
+          <li>Hoàn thiện ngữ pháp, từ vựng và Kanji cấp độ N4–N5</li>
+          <li>Khai thác AI (ChatGPT, Gemini…) hỗ trợ luyện nghe – nói – viết tiếng Nhật</li>
+          <li>Quản lý học liệu có hệ thống — đạt GPA vững cho các năm sau</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="when">Năm 2–3<small>Đào sâu chuyên môn</small></div>
+      <div>
+        <h4>Phát triển năng lực ngôn ngữ &amp; văn hóa</h4>
+        <ul>
+          <li>Đạt JLPT N3, tiến tới N2; rèn luyện kính ngữ (keigo) và biên – phiên dịch</li>
+          <li>Tìm hiểu sâu văn hóa, lịch sử và xã hội Nhật Bản</li>
+          <li>Tham gia CLB Nhật ngữ &amp; chương trình giao lưu/trao đổi sinh viên</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="when">Năm 4<small>Tốt nghiệp</small></div>
+      <div>
+        <h4>Kết hợp ngôn ngữ &amp; công nghệ số</h4>
+        <ul>
+          <li>Nghiên cứu ứng dụng AI trong dịch thuật và giảng dạy tiếng Nhật</li>
+          <li>Khóa luận tốt nghiệp về ngôn ngữ, văn hóa hoặc dịch thuật Nhật–Việt</li>
+          <li>Thực tập tại doanh nghiệp Nhật Bản hoặc tổ chức giáo dục ngôn ngữ</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="when">Sau tốt nghiệp<small>Định hướng nghề nghiệp</small></div>
+      <div>
+        <h4>Chuyên gia ngôn ngữ &amp; văn hóa Nhật Bản thời đại số</h4>
+        <ul>
+          <li>Làm biên – phiên dịch, giảng dạy hoặc làm việc tại doanh nghiệp Nhật Bản</li>
+          <li>Đạt chứng chỉ JLPT N1, tiếp tục học sau đại học nếu phù hợp</li>
+          <li>Ứng dụng công nghệ số để nâng cao hiệu quả công việc liên ngành</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  Trần Đức Dương — Đại học Ngoại ngữ – ĐHQGHN ·
+  Ngành <b>Ngôn ngữ &amp; Văn hóa Nhật Bản</b> · Khóa QH-2025 ·
+  Môn Nhập môn Công nghệ số &amp; Ứng dụng Trí tuệ nhân tạo AI
+</div>
+
+<!-- ================= DU AN ================= -->
+<section id="duan" class="page">
+  <div class="bg-deco">
+    <!-- Cổng Torii nhỏ -->
+    <svg class="deco-icon accent" viewBox="0 0 200 160" style="width:150px; top:30px; left:-20px;" preserveAspectRatio="xMidYMid meet">
+      <rect x="18" y="14" width="164" height="16" rx="3" fill="currentColor"/>
+      <rect x="32" y="42" width="136" height="10" rx="2" fill="currentColor"/>
+      <rect x="36" y="42" width="22" height="118" rx="2" fill="currentColor"/>
+      <rect x="142" y="42" width="22" height="118" rx="2" fill="currentColor"/>
+    </svg>
+    <div class="deco-kanji" style="font-size:10rem; right:-3%; bottom:2%;">創</div>
+  </div>
+  <div class="section-head">
+    <span class="seal">作</span>
+    <h2>📂 Dự án &amp; Bài tập</h2>
+    <p>Tổng hợp 6 bài tập thực hành từ môn Nhập môn Công nghệ số — gắn với chuyên ngành Ngôn ngữ &amp; Văn hóa Nhật Bản. Nhấn vào từng bài để xem chi tiết.</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><div class="num">6</div><div class="lab">✅ Bài tập hoàn thành</div></div>
+    <div class="stat"><div class="num">6</div><div class="lab">📚 Chủ đề khác nhau</div></div>
+    <div class="stat"><div class="num">100%</div><div class="lab">🎯 Tỉ lệ hoàn thành</div></div>
+  </div>
+
+  <!-- PROJECT 1 -->
+  <div class="proj">
+    <div class="proj-head" onclick="this.parentElement.classList.toggle('open')">
+      <div class="num">一</div>
+      <div class="ttl">
+        <h3>💻 Máy tính và các thiết bị ngoại vi</h3>
+        <p>Tổ chức học liệu tiếng Nhật bằng tệp tin &amp; thư mục khoa học</p>
+      </div>
+      <span class="mucnum">Mục 1.4</span>
+      <span class="chev">▼</span>
+    </div>
+    <div class="proj-body">
+      <div class="proj-body-inner">
+        <p class="proj-desc">
+          Bài tập về tổ chức tệp tin &amp; thư mục — quản lý "tủ học liệu tiếng Nhật"
+          số gọn gàng (giáo trình, file nghe, flashcard Kanji…). Nhấn nút bên dưới
+          để xem bài làm đã nộp.
+        </p>
+        <div class="submission-box" id="file1-box">
+          <a class="download-btn" id="file1-submission" href="assets/baitap1.pdf" target="_blank" rel="noopener">🔗 Mở bài làm trong tab mới</a>
+          <div class="submission-embed" id="file1-embed"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="proj">
+    <div class="proj-head" onclick="this.parentElement.classList.toggle('open')">
+      <div class="num">二</div>
+      <div class="ttl">
+        <h3>🔍 Khai thác dữ liệu và thông tin</h3>
+        <p>Nghiên cứu &amp; đánh giá tài liệu học thuật về phương pháp học tiếng Nhật</p>
+      </div>
+      <span class="mucnum">Mục 2.4</span>
+      <span class="chev">▼</span>
+    </div>
+    <div class="proj-body">
+      <div class="proj-body-inner">
+        <p class="proj-desc">
+          Bài tập tìm kiếm &amp; đánh giá tài liệu học thuật về phương pháp học
+          tiếng Nhật (Kanji, kỹ năng giao tiếp, văn hóa "omotenashi"…). Nhấn nút
+          bên dưới để xem bài làm đã nộp.
+        </p>
+        <div class="submission-box" id="file2-box">
+          <a class="download-btn" id="file2-submission" href="assets/baitap2.pdf" target="_blank" rel="noopener">🔗 Mở bài làm trong tab mới</a>
+          <div class="submission-embed" id="file2-embed"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 3 -->
+  <div class="proj">
+    <div class="proj-head" onclick="this.parentElement.classList.toggle('open')">
+      <div class="num">三</div>
+      <div class="ttl">
+        <h3>🤖 Tổng quan về Trí tuệ nhân tạo</h3>
+        <p>Phát triển kỹ năng viết Prompt hỗ trợ luyện dịch &amp; học tiếng Nhật</p>
+      </div>
+      <span class="mucnum">Mục 3.4</span>
+      <span class="chev">▼</span>
+    </div>
+    <div class="proj-body">
+      <div class="proj-body-inner">
+        <p class="proj-desc">
+          Bài tập viết Prompt AI hỗ trợ luyện dịch Nhật–Việt, giải thích ngữ pháp
+          và ôn luyện JLPT. Nhấn nút bên dưới để xem bài làm đã nộp.
+        </p>
+        <div class="submission-box" id="file3-box">
+          <a class="download-btn" id="file3-submission" href="assets/baitap3.pdf" target="_blank" rel="noopener">🔗 Mở bài làm trong tab mới</a>
+          <div class="submission-embed" id="file3-embed"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 4 -->
+  <div class="proj">
+    <div class="proj-head" onclick="this.parentElement.classList.toggle('open')">
+      <div class="num">四</div>
+      <div class="ttl">
+        <h3>🤝 Giao tiếp và hợp tác trong môi trường số</h3>
+        <p>Ứng dụng công cụ cộng tác trực tuyến cho dự án nhóm về văn hóa Nhật Bản</p>
+      </div>
+      <span class="mucnum">Mục 4.4</span>
+      <span class="chev">▼</span>
+    </div>
+    <div class="proj-body">
+      <div class="proj-body-inner">
+        <p class="proj-desc">
+          Bài tập cộng tác nhóm trong môi trường số — dự án nhóm tìm hiểu về văn
+          hóa Nhật Bản. Nhấn nút bên dưới để xem bài làm đã nộp.
+        </p>
+        <div class="submission-box" id="file4-box">
+          <a class="download-btn" id="file4-submission" href="assets/baitap4.pdf" target="_blank" rel="noopener">🔗 Mở bài làm trong tab mới</a>
+          <div class="submission-embed" id="file4-embed"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 5 -->
+  <div class="proj">
+    <div class="proj-head" onclick="this.parentElement.classList.toggle('open')">
+      <div class="num">五</div>
+      <div class="ttl">
+        <h3>🎨 Sáng tạo nội dung số</h3>
+        <p>Sử dụng AI hỗ trợ chuẩn bị bài thuyết trình về văn hóa Nhật Bản</p>
+      </div>
+      <span class="mucnum">Mục 5.4</span>
+      <span class="chev">▼</span>
+    </div>
+    <div class="proj-body">
+      <div class="proj-body-inner">
+        <p class="proj-desc">
+          Bài tập sáng tạo nội dung với AI — sử dụng AI hỗ trợ chuẩn bị bài thuyết
+          trình về văn hóa Nhật Bản. Nhấn nút bên dưới để xem bài làm đã nộp.
+        </p>
+        <div class="submission-box" id="file5-box">
+          <a class="download-btn" id="file5-submission" href="assets/baitap5.pdf" target="_blank" rel="noopener">🔗 Mở bài làm trong tab mới</a>
+          <div class="submission-embed" id="file5-embed"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 6 -->
+  <div class="proj">
+    <div class="proj-head" onclick="this.parentElement.classList.toggle('open')">
+      <div class="num">六</div>
+      <div class="ttl">
+        <h3>⚖️ An toàn và liêm chính học thuật</h3>
+        <p>Sử dụng AI có trách nhiệm trong học tập &amp; dịch thuật tiếng Nhật</p>
+      </div>
+      <span class="mucnum">Mục 6.4</span>
+      <span class="chev">▼</span>
+    </div>
+    <div class="proj-body">
+      <div class="proj-body-inner">
+        <p class="proj-desc">
+          Bài tập về an toàn &amp; liêm chính học thuật khi sử dụng AI trong học
+          tập, dịch thuật tiếng Nhật. Nhấn nút bên dưới để xem bài làm đã nộp.
+        </p>
+        <div class="submission-box" id="file6-box">
+          <a class="download-btn" id="file6-submission" href="assets/baitap6.pdf" target="_blank" rel="noopener">🔗 Mở bài làm trong tab mới</a>
+          <div class="submission-embed" id="file6-embed"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="strip">
+  Trần Đức Dương — Đại học Ngoại ngữ – ĐHQGHN ·
+  Ngành <b>Ngôn ngữ &amp; Văn hóa Nhật Bản</b> · Khóa QH-2025 ·
+  Môn Nhập môn Công nghệ số &amp; Ứng dụng Trí tuệ nhân tạo AI
+</div>
+
+<!-- ================= TONG KET ================= -->
+<section id="tongket" class="page">
+  <div class="bg-deco">
+    <!-- Tháp Tokyo nhỏ -->
+    <svg class="deco-icon" viewBox="0 0 140 340" style="width:140px; top:-10px; left:30px;" preserveAspectRatio="xMidYMin meet">
+      <rect x="65" y="0" width="10" height="35" fill="currentColor"/>
+      <polygon points="70,30 98,300 42,300" fill="currentColor"/>
+      <rect x="50" y="80" width="40" height="9" fill="currentColor"/>
+      <rect x="46" y="170" width="48" height="9" fill="currentColor"/>
+      <line x1="42" y1="300" x2="98" y2="80" stroke="currentColor" stroke-width="2"/>
+      <line x1="98" y1="300" x2="42" y2="80" stroke="currentColor" stroke-width="2"/>
+    </svg>
+    <div class="deco-kanji" style="font-size:9rem; right:-2%; top:4%;">心</div>
+  </div>
+  <div class="section-head">
+    <span class="seal">結</span>
+    <h2>🏆 Tổng kết hành trình</h2>
+    <p>Kiến thức &amp; kỹ năng tích lũy, những thách thức đã vượt qua và cảm nhận cá nhân qua dự án Portfolio này</p>
+  </div>
+
+  <h3 style="text-align:center; margin-bottom:24px;">⭐ Kiến thức &amp; Kỹ năng nổi bật</h3>
+  <div class="summary-grid">
+    <div class="sum-card">
+      <div class="ic">📁</div>
+      <h4>Quản lý tệp &amp; Tổ chức học liệu</h4>
+      <p>Cấu trúc thư mục khoa học, chuẩn PascalCase, thành thạo Copy / Cut / Paste / Delete / Restore cho học liệu tiếng Nhật.</p>
+    </div>
+    <div class="sum-card">
+      <div class="ic">🔍</div>
+      <h4>Tư duy tìm kiếm &amp; Đánh giá học thuật</h4>
+      <p>Boolean operators, phân loại nguồn tin theo độ tin cậy, tổng hợp tài liệu về phương pháp học tiếng Nhật.</p>
+    </div>
+    <div class="sum-card">
+      <div class="ic">✨</div>
+      <h4>Kỹ năng viết Prompt hiệu quả</h4>
+      <p>4 nguyên tắc: Role Prompting · Ngữ cảnh &amp; Ràng buộc · Chain-of-Thought · Socratic Loop, áp dụng cho luyện dịch &amp; ngữ pháp.</p>
+    </div>
+    <div class="sum-card">
+      <div class="ic">🤝</div>
+      <h4>Cộng tác số &amp; Làm việc nhóm</h4>
+      <p>Trello · Google Workspace · Microsoft Teams — Master File &amp; khung giờ vàng trao đổi nhóm.</p>
+    </div>
+    <div class="sum-card">
+      <div class="ic">🎨</div>
+      <h4>Sáng tạo nội dung với AI</h4>
+      <p>Ứng dụng AI tạo sinh để xây dựng bài thuyết trình văn hóa Nhật Bản, bổ sung nguồn chính thống, trích dẫn minh bạch.</p>
+    </div>
+    <div class="sum-card">
+      <div class="ic">⚖️</div>
+      <h4>Đạo đức &amp; Liêm chính học thuật</h4>
+      <p>6 nguyên tắc vàng cá nhân, hiểu rõ ranh giới giữa hỗ trợ học tập và gian lận khi dùng AI dịch thuật.</p>
+    </div>
+  </div>
+
+  <h3 style="text-align:center; margin-bottom:24px;">🧗 Thách thức đã vượt qua</h3>
+  <div class="challenge-list">
+    <div class="challenge"><div class="ic">🧩</div><p><b>Lựa chọn công cụ phù hợp</b> — Ban đầu bị choáng ngợp với quá nhiều ứng dụng số; học cách thử nghiệm và so sánh để tìm công cụ tối ưu cho việc học tiếng Nhật.</p></div>
+    <div class="challenge"><div class="ic">💬</div><p><b>Viết Prompt ban đầu</b> — Kết quả AI dịch thường chưa tự nhiên; cần nhiều vòng thử-sai để diễn đạt đúng sắc thái kính ngữ.</p></div>
+    <div class="challenge"><div class="ic">📂</div><p><b>Quản lý tài liệu nhóm</b> — Xung đột phiên bản khi làm việc nhóm; giải quyết bằng quy tắc Master File duy nhất.</p></div>
+    <div class="challenge"><div class="ic">🔎</div><p><b>Kiểm chứng bản dịch AI</b> — AI đôi khi dịch sai sắc thái văn hóa; học cách đối chiếu với từ điển và giáo viên bản ngữ.</p></div>
+  </div>
+
+  <h3 style="text-align:center; margin-bottom:24px;">😊 Cảm nhận cá nhân</h3>
+  <div class="feel-grid">
+    <div class="feel"><div class="ic">🚀</div><p>Tự tin hơn khi dùng công cụ công nghệ trong học tập tiếng Nhật</p></div>
+    <div class="feel"><div class="ic">🎌</div><p>Thấy rõ tiềm năng của AI trong việc học ngôn ngữ &amp; tìm hiểu văn hóa</p></div>
+    <div class="feel"><div class="ic">💪</div><p>Kiên trì hơn khi đối mặt với kỹ năng và công cụ mới</p></div>
+    <div class="feel"><div class="ic">⚖️</div><p>Ý thức hơn về trách nhiệm đạo đức khi sử dụng AI trong dịch thuật</p></div>
+  </div>
+
+  <div class="closing">
+    <div class="bg-kanji">夢</div>
+    <span class="seal">完</span>
+    <h3>Portfolio hoàn thành!</h3>
+    <p>
+      Minh chứng cho hành trình học tập nghiêm túc và có trách nhiệm của <b>bản thân em</b>
+      trong quá trình học môn <b>Nhập môn Công nghệ số &amp; Ứng dụng Trí tuệ nhân tạo AI</b>,
+      gắn liền với chuyên ngành <b>Ngôn ngữ &amp; Văn hóa Nhật Bản</b>.
+    </p>
+  </div>
+</section>
+
+<footer class="foot">
+  Trần Đức Dương — Đại học Ngoại ngữ – ĐHQGHN · Ngành Ngôn ngữ &amp; Văn hóa Nhật Bản · Khóa QH-2025<br>
+  Môn Nhập môn Công nghệ số &amp; Ứng dụng Trí tuệ nhân tạo AI
+</footer>
+
+<script>
+  // ============================================================
+  // 🔗 LINK BÀI LÀM ĐÃ NỘP — chỉnh sửa ở ĐÂY, chỉ 1 nơi duy nhất
+  //
+  // Dán trực tiếp:
+  //  • Link Google Docs / Sheets / Slides / Drive
+  //    (nhớ chia sẻ ở chế độ "Anyone with the link" → "Viewer")
+  //  • Đường dẫn file trong assets/ (PDF, ảnh, .docx, .xlsx, .pptx…)
+  //  • Bất kỳ link công khai khác đến file PDF/ảnh
+  //
+  // Nội dung sẽ TỰ HIỂN THỊ ngay trên trang. Nếu để trống (""),
+  // mục đó sẽ tự ẩn hoàn toàn.
+  // ============================================================
+  const SUBMISSION_LINKS = {
+    file1: "https://drive.google.com/file/d/1FQ33JIIgUMMRT9hwFzIFGn3272MvD7HW/view?usp=drive_link",
+    file2: "https://drive.google.com/file/d/1xDSS8ASsRlRhJqBKhe12GlrPNW9Q6_Dn/view?usp=drive_link",
+    file3: "https://drive.google.com/file/d/1c3lyL82cbuTj3lDjSXIyA3AmmF0y12Oy/view?usp=drive_link",
+    file4: "https://drive.google.com/file/d/1iwFnrj9P9EfCnBgkDm3Hm1BhtT5Ozf2y/view?usp=drive_link",
+    file5: "https://drive.google.com/file/d/1Dxcys9y0NCHCsABJudJbK_DyvXRoSMWy/view?usp=drive_link",
+    file6: "https://drive.google.com/file/d/1Gev4pwsXaHrvAvIMel17Wi71vrd2Vit6/view?usp=drive_link"
+  };
+
+  // Chuyển link thông thường thành link nhúng (embed) phù hợp
+  function getEmbedInfo(url) {
+    let m;
+
+    // Google Docs (văn bản)
+    m = url.match(/docs\.google\.com\/document\/d\/([a-zA-Z0-9_-]+)/);
+    if (m) return { src: `https://docs.google.com/document/d/${m[1]}/preview` };
+
+    // Google Sheets (bảng tính)
+    m = url.match(/docs\.google\.com\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/);
+    if (m) return { src: `https://docs.google.com/spreadsheets/d/${m[1]}/preview` };
+
+    // Google Slides (trình chiếu) — tỉ lệ 16:9
+    m = url.match(/docs\.google\.com\/presentation\/d\/([a-zA-Z0-9_-]+)/);
+    if (m) return { src: `https://docs.google.com/presentation/d/${m[1]}/embed?start=false&loop=false&delayms=3000`, ratio: '16-9' };
+
+    // Google Drive (file bất kỳ đã upload lên Drive)
+    m = url.match(/drive\.google\.com\/(?:file\/d\/|open\?id=)([a-zA-Z0-9_-]+)/);
+    if (m) return { src: `https://drive.google.com/file/d/${m[1]}/preview` };
+
+    // Ảnh
+    if (/\.(png|jpe?g|gif|webp|svg)(\?.*)?$/i.test(url)) return { type: 'image', src: url };
+
+    // PDF — trình duyệt tự hiển thị được
+    if (/\.pdf(\?.*)?$/i.test(url)) return { src: url };
+
+    // Word / Excel / PowerPoint dạng file (.docx, .xlsx, .pptx…) — dùng Office Online Viewer
+    // (yêu cầu file phải ở một địa chỉ công khai, ví dụ đã đưa lên GitHub Pages)
+    if (/\.(docx?|xlsx?|pptx?)(\?.*)?$/i.test(url)) {
+      const abs = new URL(url, window.location.href).href;
+      if (/^https?:\/\//i.test(abs)) {
+        return { src: `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(abs)}` };
+      }
+      return null;
+    }
+
+    return null;
+  }
+
+  function renderSubmissions() {
+    Object.entries(SUBMISSION_LINKS).forEach(([key, rawUrl]) => {
+      const box = document.getElementById(key + '-box');
+      const link = document.getElementById(key + '-submission');
+      const embed = document.getElementById(key + '-embed');
+      if (!box) return;
+
+      const url = (rawUrl || '').trim();
+      if (!url) {
+        box.style.display = 'none';
+        return;
+      }
+      box.style.display = '';
+      link.href = url;
+
+      embed.innerHTML = '';
+      embed.className = 'submission-embed';
+
+      const info = getEmbedInfo(url);
+      if (!info) return; // không nhận diện được — chỉ hiện nút mở link
+
+      if (info.type === 'image') {
+        const img = document.createElement('img');
+        img.src = info.src;
+        img.alt = 'Bài làm đã nộp';
+        embed.appendChild(img);
+        return;
+      }
+
+      if (info.ratio === '16-9') embed.classList.add('ratio-16-9');
+      const iframe = document.createElement('iframe');
+      iframe.src = info.src;
+      iframe.loading = 'lazy';
+      iframe.allow = 'autoplay';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      embed.appendChild(iframe);
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    renderSubmissions();
+  });
+
+  // Mở sẵn dự án đầu tiên
+  document.querySelector('.proj')?.classList.add('open');
+
+  // Active nav link theo vị trí cuộn
+  const sections = document.querySelectorAll('section.page, .hero');
+  const navLinks = document.querySelectorAll('nav.links a');
+  window.addEventListener('scroll', () => {
+    let current = 'home';
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= 120 && rect.bottom > 120) current = sec.id || 'home';
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+
+</body>
+</html>
